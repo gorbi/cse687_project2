@@ -1,0 +1,166 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Fri Aug 26 13:39:28 2016
+     Path: C:\SU\Repository\CodeAnalyzer\Parser
+     Args: *.h, *.cpp, *.cs, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1     210
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+         ActionsAndRules.h   namespace                       CodeAnalysis      81    1300     164
+         ActionsAndRules.h       class                         Repository      89      54      13
+         ActionsAndRules.h    function                         Repository     109       5       1
+         ActionsAndRules.h    function                        ~Repository     116       3       1
+         ActionsAndRules.h    function                           language     119       2       1
+         ActionsAndRules.h    function                            package     121       2       1
+         ActionsAndRules.h    function                        currentPath     123       2       1
+         ActionsAndRules.h    function                      currentAccess     125       2       1
+         ActionsAndRules.h    function                        getInstance     127       2       1
+         ActionsAndRules.h    function                         scopeStack     129       2       1
+         ActionsAndRules.h    function                                AST     131       2       1
+         ActionsAndRules.h    function                     getGlobalScope     133       2       1
+         ActionsAndRules.h    function                              Toker     135       2       1
+         ActionsAndRules.h    function                          lineCount     138       4       1
+         ActionsAndRules.h       class                         BeginScope     148      11       3
+         ActionsAndRules.h    function                             doTest     151       7       2
+         ActionsAndRules.h       class                   HandleBeginScope     164      23       3
+         ActionsAndRules.h    function                   HandleBeginScope     168       3       1
+         ActionsAndRules.h    function                           doAction     172      14       1
+         ActionsAndRules.h       class                           EndScope     192      11       3
+         ActionsAndRules.h    function                             doTest     195       7       2
+         ActionsAndRules.h       class                     HandleEndScope     208      27       3
+         ActionsAndRules.h    function                     HandleEndScope     214       3       1
+         ActionsAndRules.h    function                           doAction     218      16       1
+         ActionsAndRules.h       class              DetectAccessSpecifier     240      23       4
+         ActionsAndRules.h    function                             doTest     243      19       3
+         ActionsAndRules.h       class              HandleAccessSpecifier     268      20       3
+         ActionsAndRules.h    function              HandleAccessSpecifier     273       3       1
+         ActionsAndRules.h    function                           doAction     277      10       1
+         ActionsAndRules.h       class                   PreprocStatement     293      14       3
+         ActionsAndRules.h    function                             doTest     296      10       2
+         ActionsAndRules.h       class             HandlePreprocStatement     312      17       3
+         ActionsAndRules.h    function             HandlePreprocStatement     317       3       1
+         ActionsAndRules.h    function                           doAction     321       7       1
+         ActionsAndRules.h       class                NamespaceDefinition     334      19       4
+         ActionsAndRules.h    function                             doTest     337      15       3
+         ActionsAndRules.h       class          HandleNamespaceDefinition     358      19       3
+         ActionsAndRules.h    function          HandleNamespaceDefinition     363       3       1
+         ActionsAndRules.h    function                           doAction     367       9       1
+         ActionsAndRules.h       class                    ClassDefinition     382      19       4
+         ActionsAndRules.h    function                             doTest     385      15       3
+         ActionsAndRules.h       class              HandleClassDefinition     406      24       3
+         ActionsAndRules.h    function              HandleClassDefinition     411       3       1
+         ActionsAndRules.h    function                           doAction     415      14       1
+         ActionsAndRules.h       class                   StructDefinition     435      19       4
+         ActionsAndRules.h    function                             doTest     438      15       3
+         ActionsAndRules.h       class             HandleStructDefinition     459      23       3
+         ActionsAndRules.h    function             HandleStructDefinition     464       3       1
+         ActionsAndRules.h    function                           doAction     468      13       1
+         ActionsAndRules.h       class              CppFunctionDefinition     487      24       4
+         ActionsAndRules.h    function                             doTest     490      20       3
+         ActionsAndRules.h       class        HandleCppFunctionDefinition     516      90       8
+         ActionsAndRules.h    function        HandleCppFunctionDefinition     521       3       1
+         ActionsAndRules.h    function                           doAction     525      80       6
+         ActionsAndRules.h       class           CSharpFunctionDefinition     611      28       4
+         ActionsAndRules.h    function                             doTest     614      24       3
+         ActionsAndRules.h       class     HandleCSharpFunctionDefinition     644      91       7
+         ActionsAndRules.h    function     HandleCSharpFunctionDefinition     649       3       1
+         ActionsAndRules.h    function                           doAction     653      81       5
+         ActionsAndRules.h       class                  ControlDefinition     740      25       5
+         ActionsAndRules.h    function                             doTest     743      21       4
+         ActionsAndRules.h       class            HandleControlDefinition     770      22       3
+         ActionsAndRules.h    function            HandleControlDefinition     775       3       1
+         ActionsAndRules.h    function                           doAction     779      12       1
+         ActionsAndRules.h       class                      PrintFunction     798      16       3
+         ActionsAndRules.h    function                      PrintFunction     804       3       1
+         ActionsAndRules.h    function                           doAction     808       5       1
+         ActionsAndRules.h       class                PrettyPrintFunction     819      19       3
+         ActionsAndRules.h    function                PrettyPrintFunction     823       2       1
+         ActionsAndRules.h    function                           doAction     827      10       1
+         ActionsAndRules.h       class                     CppDeclaration     849      52       8
+         ActionsAndRules.h    function                             doTest     852      48       7
+         ActionsAndRules.h       class               HandleCppDeclaration     906      91      11
+         ActionsAndRules.h    function               HandleCppDeclaration     909       2       1
+         ActionsAndRules.h    function                           doAction     913      83       9
+         ActionsAndRules.h       class                  CSharpDeclaration    1008     113      13
+         ActionsAndRules.h    function                             doTest    1011     109      12
+         ActionsAndRules.h       class            HandleCSharpDeclaration    1126      76       9
+         ActionsAndRules.h    function            HandleCSharpDeclaration    1129       2       1
+         ActionsAndRules.h    function                           doAction    1133      68       7
+         ActionsAndRules.h       class                      CppExecutable    1207      46       6
+         ActionsAndRules.h    function                             doTest    1210      42       5
+         ActionsAndRules.h       class                HandleCppExecutable    1258      19       4
+         ActionsAndRules.h    function                HandleCppExecutable    1261       2       1
+         ActionsAndRules.h    function                           doAction    1265      11       2
+         ActionsAndRules.h       class                   CSharpExecutable    1281      46       6
+         ActionsAndRules.h    function                             doTest    1284      42       5
+         ActionsAndRules.h       class             HandleCSharpExecutable    1331      19       4
+         ActionsAndRules.h    function             HandleCSharpExecutable    1334       2       1
+         ActionsAndRules.h    function                           doAction    1338      11       2
+         ActionsAndRules.h       class                            Default    1355      10       2
+         ActionsAndRules.h    function                             doTest    1358       6       1
+         ActionsAndRules.h       class                      HandleDefault    1369      11       3
+         ActionsAndRules.h    function                      HandleDefault    1372       2       1
+         ActionsAndRules.h    function                           doAction    1376       3       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+       ActionsAndRules.cpp      lambda                                [])      25      35       4
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+         ConfigureParser.h   namespace                       CodeAnalysis      58      69       8
+         ConfigureParser.h       class             ConfigParseForCodeAnal      63      63       7
+         ConfigureParser.h    function             ConfigParseForCodeAnal      64       1       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+       ConfigureParser.cpp    function            ~ConfigParseForCodeAnal      25      34       1
+       ConfigureParser.cpp    function                             Attach      62       7       1
+       ConfigureParser.cpp    function                              Build      73      93       3
+       ConfigureParser.cpp      lambda                                [])     173      48       8
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                  Parser.h   namespace                       CodeAnalysis      73      59      17
+                  Parser.h       class                           IBuilder      81       5       2
+                  Parser.h    function                          ~IBuilder      82       2       1
+                  Parser.h       class                            IAction      92       5       2
+                  Parser.h    function                           ~IAction      93       2       1
+                  Parser.h       class                              IRule     103      11       4
+                  Parser.h    function                             ~IRule     106       2       1
+                  Parser.h       class                             Parser     116      11       8
+                  Parser.h    function                             Parser     127       2       1
+                  Parser.h    function                            ~Parser     129       2       1
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                Parser.cpp    function                          addAction      63       3       1
+                Parser.cpp    function                          doActions      69       5       1
+                Parser.cpp    function                            addRule      27       3       1
+                Parser.cpp    function                               next      32      15       2
+                Parser.cpp    function                              parse      51       9       2
+                Parser.cpp      lambda                                [])      86      55       8
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+         ActionsAndRules.h    function                           doAction     525      80       6
+         ActionsAndRules.h    function                           doAction     653      81       5
+         ActionsAndRules.h    function                           doAction     913      83       9
+         ActionsAndRules.h    function                             doTest    1011     109      12
+         ActionsAndRules.h    function                           doAction    1133      68       7
+       ConfigureParser.cpp    function                              Build      73      93       3
+
+
+
+    searched     6 dirs
+   processed     6 files

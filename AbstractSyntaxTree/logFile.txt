@@ -1,0 +1,80 @@
+
+                                             CodeAnalysis
+    ==============================================================================================
+     Sat Aug 27 22:39:47 2016
+     Path: C:\SU\Repository\CodeAnalyzer\AbstractSyntaxTree
+     Args: AbstrSynTree.h, /m, /r, /f
+                                                                               
+           Code Metrics - Start Line, Size (lines/code), and Complexity (number of scopes)
+    ==============================================================================================
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+                             namespace                   Global Namespace       1       1      15
+
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+            AbstrSynTree.h   namespace                       CodeAnalysis      55     111      13
+            AbstrSynTree.h      struct                    DeclarationNode      67       7       1
+              public data: Scanner :: ITokCollection * pTc = nullptr ; 
+              public data: Access access_ ; 
+              public data: DeclType declType_ ; 
+              public data: std :: string package_ ; 
+              public data: size_t line_ ; 
+            AbstrSynTree.h      struct                            ASTNode      76      21       1
+              public data: Type type_ ; 
+              public data: Name name_ ; 
+              public data: Package package_ ; 
+              public data: Path path_ ; 
+              public data: size_t startLineCount_ ; 
+              public data: size_t endLineCount_ ; 
+              public data: size_t complexity_ ; 
+              public data: std :: vector < ASTNode * > children_ ; 
+              public data: std :: vector < DeclarationNode > decl_ ; 
+              public data: std :: vector < Scanner :: ITokCollection * > statements_ ; 
+            AbstrSynTree.h       class                       AbstrSynTree      99      17       1
+            AbstrSynTree.h    function                            ASTWalk     120      12       2
+            AbstrSynTree.h    function                    ASTWalkNoIndent     136       9       2
+            AbstrSynTree.h    function                     complexityWalk     148      10       2
+            AbstrSynTree.h    function                     complexityEval     161       4       1
+            AbstrSynTree.h      struct                             foobar     167       3       1
+
+                          Functions Exceeding Metric Limits and Public Data
+    ==============================================================================================
+                 file name        type                               name    line    size    cplx
+    -----------------------  ----------  ---------------------------------  ------  ------  ------
+
+              public data: AbstrSynTree.h : 68 - struct DeclarationNode
+                Scanner :: ITokCollection * pTc = nullptr ; 
+              public data: AbstrSynTree.h : 69 - struct DeclarationNode
+                Access access_ ; 
+              public data: AbstrSynTree.h : 70 - struct DeclarationNode
+                DeclType declType_ ; 
+              public data: AbstrSynTree.h : 71 - struct DeclarationNode
+                std :: string package_ ; 
+              public data: AbstrSynTree.h : 72 - struct DeclarationNode
+                size_t line_ ; 
+              public data: AbstrSynTree.h : 85 - struct ASTNode
+                Type type_ ; 
+              public data: AbstrSynTree.h : 86 - struct ASTNode
+                Name name_ ; 
+              public data: AbstrSynTree.h : 87 - struct ASTNode
+                Package package_ ; 
+              public data: AbstrSynTree.h : 88 - struct ASTNode
+                Path path_ ; 
+              public data: AbstrSynTree.h : 89 - struct ASTNode
+                size_t startLineCount_ ; 
+              public data: AbstrSynTree.h : 90 - struct ASTNode
+                size_t endLineCount_ ; 
+              public data: AbstrSynTree.h : 91 - struct ASTNode
+                size_t complexity_ ; 
+              public data: AbstrSynTree.h : 92 - struct ASTNode
+                std :: vector < ASTNode * > children_ ; 
+              public data: AbstrSynTree.h : 93 - struct ASTNode
+                std :: vector < DeclarationNode > decl_ ; 
+              public data: AbstrSynTree.h : 94 - struct ASTNode
+                std :: vector < Scanner :: ITokCollection * > statements_ ; 
+
+
+    searched     4 dirs
+   processed     1 files
