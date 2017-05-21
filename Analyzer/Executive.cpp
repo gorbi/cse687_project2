@@ -33,7 +33,8 @@
 #include "../AbstractSyntaxTree/AbstrSynTree.h"
 #include "../Logger/Logger.h"
 #include "../Utilities/Utilities.h"
-#include "DepAnal.h"
+//#include "DepAnal.h"
+#include "../Display/Display.h"
 
 using Rslt = Logging::StaticLogger<0>;  // use for application results
 using Demo = Logging::StaticLogger<1>;  // use for demonstrations of processing
@@ -113,6 +114,7 @@ using FileToNodeCollection = std::vector<std::pair<File, ASTNode*>>;
 
 CodeAnalysisExecutive::CodeAnalysisExecutive()
 {
+  std::cout << "\n-----------------Requirement 3: Created Test Executive -------------------\n\n";
   pParser_ = configure_.Build();
   if (pParser_ == nullptr)
   {
@@ -156,6 +158,10 @@ void showUsage()
   out << "\n    - b : set logger to display debug outputs";
   out << "\n    - f : write all logs to logfile.txt";
   out << "\n  A metrics summary is always shown, independent of any options used or not used";
+  out << "\n    - Dependancy analysis XML file path can be specified with param DepXMLPath followed by the path";
+  out << "\n    - default dependancy analysis XML file path is ../../XMLFiles/dep.xml";
+  out << "\n    - Strongly connected components XML file path can be specified with param SCCXMLPath followed by the path";
+  out << "\n    - default strongly connected components XML file path is ../../XMLFiles/scc.xml";
   out << "\n\n";
   std::cout << out.str();
   //Rslt::write(out.str());
@@ -183,38 +189,46 @@ void CodeAnalysisExecutive::showCommandLineArguments(int argc, char* argv[])
 */
 bool CodeAnalysisExecutive::ProcessCommandLine(int argc, char* argv[])
 {
-  if (argc < 2)
-  {
-    showUsage();
-    return false;
-  }
-  try {
-    path_ = FileSystem::Path::getFullFileSpec(argv[1]);
-    if (!FileSystem::Directory::exists(path_))
-    {
-      std::cout << "\n\n  path \"" << path_ << "\" does not exist\n\n";
-      return false;
-    }
-    for (int i = 2; i < argc; ++i)
-    {
-      if (argv[i][0] == '/')
-        options_.push_back(argv[i][1]);
-      else
-        patterns_.push_back(argv[i]);
-    }
-    if (patterns_.size() == 0)
-    {
-      showUsage();
-      return false;
-    }
-  }
-  catch (std::exception& ex)
-  {
-    std::cout << "\n\n  command line argument parsing error:";
-    std::cout << "\n  " << ex.what() << "\n\n";
-    return false;
-  }
-  return true;
+	std::cout << "\n-----------------Requirement 8: Process the command line arguments-------------------\n\n";
+	std::cout << "\n   Path to the directory tree containing files to analyze\n";
+	std::cout << "\n   List of file patterns to match for selection of files to analyze Ex. *.cpp, *css *.h etc are provided\n";
+	std::cout << "\n   Specification of the XML results file, supplying a default if no specification is provided\n";
+	if (argc < 2)
+	{
+		showUsage();
+		return false;
+	}
+	try {
+		path_ = FileSystem::Path::getFullFileSpec(argv[1]);
+		if (!FileSystem::Directory::exists(path_))
+		{
+			std::cout << "\n\n  path \"" << path_ << "\" does not exist\n\n";
+			return false;
+		}
+		for (int i = 2; i < argc; ++i)
+		{
+			if (argv[i][0] == '/')
+				options_.push_back(argv[i][1]);
+			else if (argv[i][0] == '*')
+				patterns_.push_back(argv[i]);
+			else if (std::strcmp(argv[i], "-SCCXMLPath") == 0)
+				sccXmlPath = argv[i + 1];
+			else if (std::strcmp(argv[i], "-DepXMLPath") == 0)
+				depXmlPath = argv[i + 1];
+		}
+		if (patterns_.size() == 0)
+		{
+			showUsage();
+			return false;
+		}
+	}
+	catch (std::exception& ex)
+	{
+		std::cout << "\n\n  command line argument parsing error:";
+		std::cout << "\n  " << ex.what() << "\n\n";
+		return false;
+	}
+	return true;
 }
 //----< returns path entered on command line >-------------------
 
@@ -851,6 +865,21 @@ void CodeAnalysisExecutive::setLogFile(const File& file)
     Rslt::write("\n  couldn't open logFile.txt for writing");
 }
 
+Files CodeAnalysis::CodeAnalysisExecutive::getAllsubFiles()
+{
+	FileMap fileMapTemp = getFileMap();
+	Files allFiles;
+
+	using Pair = std::pair<Pattern, Files>;
+	for (Pair pair : fileMapTemp)
+	{
+		for (File f : pair.second)
+			allFiles.push_back(f);
+	}
+
+	return allFiles;
+}
+
 std::string CodeAnalysisExecutive::systemTime()
 { 
   time_t sysTime = time(&sysTime);
@@ -871,6 +900,7 @@ int main(int argc, char* argv[])
   CodeAnalysisExecutive exec;
 
   try {
+	std::cout << "\n-----------------Requirement 9: Automated unit test suite that demonstrates I met all the requirements of this project-------------------\n\n";
     bool succeeded = exec.ProcessCommandLine(argc, argv);
     if (!succeeded)
     {
@@ -908,6 +938,30 @@ int main(int argc, char* argv[])
 
     TypeAnal ta;
     ta.doTypeAnal();
+
+	Files allsubfiles = exec.getAllsubFiles();
+
+	DepAnal da(exec.getDepXMLPath(), 5);
+	for (File file : allsubfiles)
+		da.doDepAnal(ta, file);
+
+	StrongComponents scc(exec.getSCCXMLPath());
+	scc.createGraph(da, allsubfiles);
+
+	Display d;
+	d.showTypeTable(ta);
+	std::cout << "\n";
+	std::cout << "\n";
+	d.showDependencyTable(da);
+	std::cout << "\n";
+	std::cout << "\n";
+	d.showStrongComponents(scc);
+
+	std::string& sccInXmlFormat = scc.getXmlFileContent();
+	std::cout << "Strongly Connected Components in XML Format\n";
+	std::cout << "-------------------------------------------------------------------------------------\n\n";
+	std::cout << sccInXmlFormat << "\n\n\n";
+
   }
   catch (std::exception& except)
   {

@@ -77,6 +77,7 @@
 *  - first release
 *
 */
+#pragma warning (disable: 4503)
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -168,7 +169,12 @@ namespace CodeAnalysis
     void flushLogger();
     void stopLogger();
     void setLogFile(const File& file);
+	Files getAllsubFiles();
+	std::string getDepXMLPath() { return depXmlPath; };
+	std::string getSCCXMLPath() { return sccXmlPath; };
   private:
+	std::string depXmlPath = "dep.xml";
+	std::string sccXmlPath = "scc.xml";
     void setLanguage(const File& file);
     void showActivity(const File& file);
     void clearActivity();

@@ -180,6 +180,32 @@
     <ClInclude Include="DepAnal.h" />
     <ClInclude Include="Executive.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Convert\Convert.vcxproj">
+      <Project>{250da03f-34bb-4402-b3a4-6355febeb97f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CppProperties\CppProperties.vcxproj">
+      <Project>{e0bd3411-9498-44e3-9166-e6bf9a40874e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DependencyAnalysis\DependencyAnalysis.vcxproj">
+      <Project>{de1e7a8a-5b05-4b10-8b56-e75028530905}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Display\Display.vcxproj">
+      <Project>{593986ee-d79a-457e-be89-a264df3fc09e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\NoSqlDb\NoSqlDb.vcxproj">
+      <Project>{0258661b-f975-4061-9aa6-5e201397c91d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\StrongComponents\StrongComponents.vcxproj">
+      <Project>{0c04e34e-77fc-4f69-8035-93377e8a5008}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TypeAnalysis\TypeAnalysis.vcxproj">
+      <Project>{718cf6d9-2b5e-4654-932b-07fd2501f823}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlDocument\XmlDocument\XmlDocument.vcxproj">
+      <Project>{0a82ecdc-7520-453a-8f2c-d813feee7537}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
